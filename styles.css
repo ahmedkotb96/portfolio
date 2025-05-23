@@ -1,0 +1,291 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #4a6fa5;
+    --secondary-color: #f9f9f9;
+    --border-color: #dddddd;
+}
+
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --primary-color: #6d97d3;
+    --secondary-color: #2d2d2d;
+    --border-color: #404040;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.theme-transition {
+    transition: background-color 0.3s ease-in-out, 
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
+}
+
+.theme-transition * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Ensure smooth icon transitions */
+.fa-moon,
+.fa-sun {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    span {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    a {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .project-card p {
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        font-size: 0.9rem;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem;
+    }
+
+    .text-xl {
+        font-size: 1.1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .flex-wrap {
+        flex-direction: column;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .project-card {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .typing {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    /* Adjust animation for better mobile display */
+    @keyframes typing {
+        from { 
+            width: 0;
+            height: auto;
+        }
+        to { 
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p, span, a {
+        font-size: 0.9rem;
+    }
+
+    .text-4xl {
+        font-size: 1.8rem;
+    }
+
+    .text-3xl {
+        font-size: 1.5rem;
+    }
+
+    .text-2xl {
+        font-size: 1.2rem;
+    }
+
+    .break-all {
+        word-break: break-all;
+    }
+
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .typing {
+        max-width: 240px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Optimize image loading */
+.lazy-image {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+/* Mobile menu animation */
+.mobile-menu-enter {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-enter-active {
+    transform: translateY(0);
+}
+
+/* Fix dark mode specific transitions */
+.dark .theme-transition {
+    transition: background-color 0.3s ease-in-out,
+                color 0.3s ease-in-out,
+                border-color 0.3s ease-in-out,
+                box-shadow 0.3s ease-in-out;
+}
+
+/* Typing animation styles */
+.typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid transparent;
+    width: 0;
+    animation: typing 1s steps(30, end) forwards,
+               blink 0s ;
+}
+
+.typing-1 {
+    animation-delay: 0s;
+}
+
+.typing-2 {
+    animation-delay: 1s;
+    width: 0;
+}
+
+.typing-3 {
+    animation-delay: 1.5s;
+    width: 0;
+}
+
+.typing-4 {
+    animation-delay: 3s;
+    width: 0;
+}
+.typing-5 {
+    animation-delay: 4.0s;
+    width: 0;
+}
+
+.typing-6 {
+    animation-delay: 5s;
+    width: 0;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor }
+}
